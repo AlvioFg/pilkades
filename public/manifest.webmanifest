@@ -1,0 +1,20 @@
+{
+  "name": "Simulasi Pilkades",
+  "short_name": "Pilkades",
+  "description": "Simulasi Pemungutan Suara Pilkades - KPPS",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F5F7F4",
+  "theme_color": "#0B6E3F",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "./logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

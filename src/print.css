@@ -1,0 +1,203 @@
+/*
+ * Semua aturan cetak printer thermal tinggal di file ini.
+ * Target: roll 58 mm (printer struk belanja / thermal 58mm Bluetooth).
+ *
+ * Prinsip:
+ *  - Semua dimensi ditulis dalam mm, bukan px, supaya tetap 58 mm
+ *    walau @page size diabaikan browser dan halaman dicetak di A4.
+ *  - Struk WAJIB terbaca dalam hitam-putih (printer thermal tidak
+ *    menjamin mencetak background warna).
+ *  - Hijau hanya dekorasi; informasi penting tidak boleh bergantung
+ *    pada background graphics.
+ *
+ * Dua ukuran kertas dipakai di aplikasi yang sama:
+ *  - struk suara  -> roll 58 mm  (@page bawaan)
+ *  - surat undangan -> A4/F4     (@page invitation, lewat named page)
+ */
+
+/* Bawaan: struk suara roll 58 mm */
+@page {
+  size: 58mm auto;
+  margin: 0;
+}
+
+/* Lembar surat undangan dicetak di kertas A4/F4 */
+@page invitation {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+:root {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  html,
+  body {
+    width: 58mm;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  /* Sembunyikan semua, tampilkan hanya struk.
+     PENTING: pakai visibility, bukan display: supaya elemen yang
+     tersembunyi masih mengambil ruang dan children-nya tetap bisa
+     di-"visibility: visible" kembali. Dengan display:none, seluruh
+     subtree ikut hilang. */
+  body * {
+    visibility: hidden;
+  }
+
+  #receipt,
+  #receipt * {
+    visibility: visible;
+  }
+
+  #receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm;
+    padding: 3mm 2mm 4mm;
+    color: #000;
+    background: #fff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* ---- Lembar surat undangan (A4) ---- */
+  /* Saat body memakai kelas print-invitations, struk 58 mm disembunyikan
+     dan lembar undangan memakai kertas A4.
+     Wrapper .no-print yang membungkus kontrol harus tetap di(display),
+     tapi isinya disembunyikan agar tidak ikut tercetak. */
+  body.print-invitations {
+    width: auto;
+  }
+
+  body.print-invitations #receipt {
+    display: none !important;
+  }
+
+  /* Semua yang bukan lembar undangan disembunyikan. */
+  body.print-invitations * {
+    visibility: hidden !important;
+  }
+
+  body.print-invitations .demo-ticket-sheet,
+  body.print-invitations .demo-ticket-sheet * {
+    visibility: visible !important;
+  }
+
+  /* Wrapper .no-print berisi kontrol + kartu. Kontrol disembunyikan lewat
+     visibility, kartu ditampilkan. Jangan pakai display:none di sini. */
+  body.print-invitations .no-print {
+    display: block !important;
+    visibility: hidden;
+  }
+
+  body.print-invitations .no-print .demo-ticket-sheet,
+  body.print-invitations .no-print .demo-ticket-sheet * {
+    visibility: visible !important;
+  }
+
+  .demo-ticket-sheet {
+    position: static;
+    width: auto;
+    margin: 0;
+    page: invitation;
+  }
+
+  /* tiap surat undangan tidak boleh terpotong antar halaman */
+  .demo-ticket-sheet > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ============ Gaya struk (hanya saat tampil di layar) ============ */
+
+.receipt-preview {
+  width: 58mm;
+  padding: 4mm 3mm;
+  background: #fff;
+  color: #000;
+  border: 1px dashed #b0b0b0;
+  font-family: var(--font-body);
+  font-size: 9pt;
+  line-height: 1.35;
+}
+
+.receipt-preview .r-kop {
+  font-family: var(--font-kop);
+  text-align: center;
+}
+
+.receipt-preview .r-rule {
+  border-top: 1px solid #000;
+  margin: 1.5mm 0;
+}
+
+.receipt-preview .r-rule-double {
+  border-top: 3px double #000;
+  margin: 1.5mm 0;
+}
+
+.receipt-preview .r-center {
+  text-align: center;
+}
+
+.receipt-preview .r-mono {
+  font-family: ui-monospace, 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+.receipt-preview .r-no {
+  font-size: 34pt;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.receipt-preview .r-qr {
+  display: flex;
+  justify-content: center;
+  margin: 1.5mm 0;
+  overflow: visible;
+}
+
+.receipt-preview .r-qr-box {
+  display: inline-flex;
+  background: #fff;
+  padding: 1mm;
+  overflow: visible;
+  line-height: 0;
+}
+
+.receipt-preview .r-qr-box svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.receipt-preview-screen {
+  padding: 3mm 2.5mm;
+}
+
+.receipt-screen-shell {
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+}
+
+.receipt-preview .r-foot {
+  font-size: 7pt;
+  text-align: center;
+  color: #333;
+}

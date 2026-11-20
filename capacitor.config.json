@@ -1,0 +1,21 @@
+{
+  "appId": "id.dayeuhkolot.pilkades.simulasi",
+  "appName": "Simulasi Pilkades",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#F5F7F4",
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": true,
+      "launchShowDuration": 800,
+      "backgroundColor": "#0B6E3F",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#0B6E3F"
+    }
+  }
+}

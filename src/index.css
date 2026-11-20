@@ -1,0 +1,301 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Palet formal pemerintahan */
+  --color-gov-green: #0b6e3f;
+  --color-gov-dark: #064e2e;
+  --color-gov-mid: #128a4f;
+  --color-gov-cream: #f5f7f4;
+  --color-gov-gold: #b8860b;
+  --color-gov-ink: #1b1f1a;
+  --color-gov-muted: #5f6b60;
+
+  --font-kop: 'Times New Roman', Times, serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-gov-cream);
+    color: var(--color-gov-ink);
+    touch-action: manipulation;
+    overscroll-behavior-y: none;
+  }
+
+  .kios-chrome {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .btn {
+    @apply min-h-12 px-5 text-base;
+  }
+
+  .input {
+    @apply min-h-12 text-base;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 700px) {
+  main {
+    @apply py-2;
+  }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3
+         text-base font-semibold transition-all duration-150 ease-out
+         disabled:cursor-not-allowed disabled:opacity-45;
+}
+
+@utility btn-press {
+  @apply active:scale-[0.96] active:brightness-95;
+}
+
+@utility btn-primary {
+  @apply btn bg-gov-green text-white hover:bg-gov-mid active:bg-gov-dark;
+}
+
+@utility btn-secondary {
+  @apply btn border-2 border-gov-green bg-white text-gov-green hover:bg-gov-cream;
+}
+
+@utility btn-danger {
+  @apply btn border-2 border-red-700 bg-white text-red-700 hover:bg-red-50;
+}
+
+@utility btn-ghost {
+  @apply btn border border-gov-muted/40 bg-white text-gov-ink hover:bg-gov-cream;
+}
+
+@utility card {
+  @apply rounded-xl border border-gov-muted/20 bg-white shadow-sm;
+}
+
+@utility label {
+  @apply mb-1.5 block text-sm font-semibold text-gov-ink;
+}
+
+@utility input {
+  @apply w-full rounded-lg border-2 border-gov-muted/30 bg-white px-4 py-3
+         text-base text-gov-ink outline-none
+         focus:border-gov-green focus:ring-2 focus:ring-gov-green/20;
+}
+
+@utility kop-serif {
+  font-family: var(--font-kop);
+}
+
+@utility app-viewport {
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+@utility page-vote-fill {
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+@utility tap-card {
+  @apply transition-transform duration-150 ease-out active:scale-[0.96]
+         hover:border-gov-green hover:shadow-md;
+}
+
+/* Kartu calon: 5 kolom sama tinggi, foto mengisi tanpa strip kosong */
+.candidate-vote-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.candidate-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.candidate-card-no {
+  flex-shrink: 0;
+  border-bottom: 2px solid color-mix(in srgb, var(--color-gov-ink) 80%, transparent);
+  padding: 0.35rem 0.25rem;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1;
+  font-size: clamp(1.125rem, 2.8vw, 1.75rem);
+}
+
+.candidate-card-photo {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-gov-ink) 6%, white);
+}
+
+.candidate-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.candidate-card-name {
+  flex-shrink: 0;
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid color-mix(in srgb, var(--color-gov-ink) 80%, transparent);
+  padding: 0.35rem 0.25rem;
+}
+
+.candidate-card-name span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-align: center;
+  font-family: var(--font-kop);
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: clamp(0.5rem, 1.35vw, 0.65rem);
+}
+
+@keyframes ballot-fall {
+  0% {
+    transform: translateY(-30px) rotate(-6deg);
+    opacity: 0;
+  }
+  12% {
+    transform: translateY(0) rotate(-6deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(248px) rotate(3deg);
+    opacity: 1;
+  }
+  84% {
+    transform: translateY(262px) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(262px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes ballot-shadow {
+  0%,
+  12% {
+    transform: scaleX(0.4);
+    opacity: 0.25;
+  }
+  70%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.45;
+  }
+}
+
+@keyframes box-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-4px) rotate(-0.6deg);
+  }
+  40% {
+    transform: translateX(4px) rotate(0.6deg);
+  }
+  60% {
+    transform: translateX(-2px) rotate(-0.3deg);
+  }
+  80% {
+    transform: translateX(2px) rotate(0.3deg);
+  }
+}
+
+.drop-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10rem;
+  margin-left: -5rem;
+  z-index: 20;
+  animation: ballot-fall 1.6s cubic-bezier(0.45, 0.05, 0.55, 1) forwards;
+}
+
+.drop-shadow {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  width: 9rem;
+  height: 0.75rem;
+  margin-left: -4.5rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(4px);
+  animation: ballot-shadow 1.6s cubic-bezier(0.45, 0.05, 0.55, 1) forwards;
+}
+
+.ballot-box {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  width: 13rem;
+  margin-left: -6.5rem;
+  z-index: 30;
+  animation: box-shake 0.5s ease-in-out 1.2s 2;
+}
+
+.ballot-box .slot {
+  height: 0.5rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-bottom: none;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.ballot-box .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 13rem;
+  height: 7.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top: none;
+  background: linear-gradient(180deg, #128a4f 0%, #0b6e3f 55%, #064e2e 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop-card,
+  .drop-shadow,
+  .ballot-box {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

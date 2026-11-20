@@ -1,0 +1,66 @@
+/**
+ * Nama & alamat dummy untuk membuat tiket undangan demo.
+ * Dipakai tombol "Buat Tiket Demo" di halaman Beranda.
+ */
+
+export const DEMO_NAMES = [
+  'Siti Aminah',
+  'Budi Santoso',
+  'Siti Nurhaliza',
+  'Ahmad Fauzi',
+  'Dewi Lestari',
+  'Rudi Hartono',
+  'Nurul Hidayah',
+  'Agus Setiawan',
+  'Endah Wahyuni',
+  'Dedi Kurniawan',
+  'Sri Wahyuni',
+  'Joko Prasetyo',
+  'Maya Sari',
+  'Hendra Gunawan',
+  'Lilis Suryani',
+  'Rizal Ramadhan',
+  'Nining Ayu',
+  'Supardi',
+  'Wulan Sari',
+  'Bambang Sutrisno',
+  'Yuni Shara',
+  'Asep Saepudin',
+  'Citra Kirana',
+  'Iwan Setiawan',
+  'Tati Rohmah',
+  'Dadan Kurnia',
+  'Rina Marlina',
+  'Ujang Suryana',
+  'Popon Aisyah',
+  'Herman Susilo',
+  'Tia Nastiti',
+  'Slamet Riyadi',
+  'Nisa Nuraini',
+  'Yanto Basri',
+  'Indah Permata',
+  'Budi Santika',
+  'Elisabet Nurlina',
+  'Heri Setiawan',
+  'Novi Andriani',
+  'Wawan_identity',
+].map((n) => n.replace('_identity', ''))
+export const DEMO_DUSUN = [
+  'Dsn. Melati',
+  'Dsn. Mawar',
+  'Dsn. Anggrek',
+  'Dsn. Kenanga',
+  'Dsn. Sepakat',
+  'Dsn. Harmoni',
+]
+
+export const DEMO_RT = [
+  'RT 01',
+  'RT 02',
+  'RT 03',
+  'RT 04',
+  'RT 05',
+  'RT 06',
+  'RT 07',
+  'RT 08',
+]

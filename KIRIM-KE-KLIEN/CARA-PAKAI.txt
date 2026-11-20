@@ -1,0 +1,103 @@
+================================================================
+  SIMULASI PEMUNGUTAN SUARA PILKADES
+  Desa Dayeuhkolot, Kec. Sagalaherang, Kab. Subang
+================================================================
+
+APA YANG DIDAPAT
+----------------
+1 file: Simulasi-Pilkades-v1.0.apk  (5,8 MB)
+File ini sudah berisi seluruh aplikasi. Cukup kirim 1 file ini
+ke klient, tidak perlu file lain.
+
+
+CARA PASANG DI TABLET
+---------------------
+1. Salin file .apk ke tablet (kabel USB, Bluetooth, atau WA).
+2. Di tablet buka aplikasi File Manager, cari file .apk tadi.
+3. Tekan file-nya. Android akan minta izin "Install unknown apps".
+   -> Pilih aplikasi yang mau dipakai (mis. Files / File Manager).
+   -> Aktifkan "Allow from this source", lalu OK.
+4. Tekan "Install".
+5. Setelah selesai, buka aplikasi "Simulasi Pilkades".
+6. Saat pertama dibuka, akan diminta izin kamera -> pilih "Allow / Izinkan".
+
+Kalau Android menampilkan peringatan "This app may be harmful" atau
+"aplikasi dari sumber tidak dikenal", itu normal untuk file .apk
+yang tidak berasal dari Play Store. Tetap pilih "Install anyway /
+Tetap pasang".
+
+Butuh: Android 7.0 (Nougat) ke atas.
+
+
+CARA PAKAI (PETUGAS)
+---------------------
+LANGKAH 1 - MULAI SESI
+  Buka aplikasi. Isi: Nama Desa, Kabupaten, Kecamatan, Nomor TPS,
+  Nomor Bilik Suara, Jabatan, Nama Petugas.
+  Tekan "Mulai Sesi Pemungutan Suara".
+  >> Layar tablet jadi layar penuh dan tidak tidur sendiri.
+
+LANGKAH 2 - SCAN UNDANGAN WARGA
+  Warga menunjukkan QR code pada surat undangan ke kamera.
+  Aplikasi akan menampilkan nama warga sebagai konfirmasi.
+  Tekan "Lanjut Memilih Calon".
+  (Kalau QR tidak terbaca, buka "Gunakan kode tiket manual"
+   dan ketik kode seperti TKT-2026-000001)
+
+LANGKAH 3 - WARGA MEMILIH
+  Akan tampil 5 foto kandidat. Warga tinggal ketuk foto kandidat
+  yang dipilih.
+  >> Tidak ada konfirmasi. Suara langsung tercatat.
+  >> Struk suara langsung tercetak sendiri.
+  >> Setelah 3 detik, aplikasi otomatis kembali ke halaman scan
+     untuk warga berikutnya.
+  (Tombol "Kembali ke Pemindaian" juga ada, untuk jaga-jaga.)
+
+LANGKAH 4 - HITUNG SUARA (dipakai panitia)
+  Buka menu "Rekap".
+  Ada 2 mode:
+   - Otomatis  : semua suara yang sudah masuk dihitung langsung.
+   - Mode Kotak : struk suara dihitung manual satu per satu,
+                  seperti menghitung kertas suara sungguhan.
+  Bisa pindah bilik suara kapan saja di halaman Rekap.
+
+ALAT PENDUKUNG DI HALAMAN BERANDA
+  - "Buat 40 Tiket Demo" : membuat warga dummy + QR undangan
+    untuk uji coba tanpa kertas sungguhan.
+  - "Lihat & Cetak Undangan" : mencetak lembar surat undangan
+    (A4, 2 surat per halaman) untuk dibagikan ke warga.
+  - "Tentang Aplikasi" : daftar kandidat, data sesi, dan penjelasan.
+
+
+CATATAN PENTING
+---------------
+- Aplikasi ini adalah SIMULASI demonstrasi alat peraga pemilihan.
+  Hasil suara di aplikasi ini TIDAK SAH secara hukum dan tidak
+  bisa dijadikan dasar penetapan kepala desa.
+
+- Semua data tersimpan di dalam tablet saja. Tidak ada internet,
+  tidak ada server, tidak ada akun. Kalau butuh cadangan, pakai
+  tombol "Ekspor Cadangan" di halaman Rekap.
+
+- Printer thermal Bluetooth (mis. BP-ECO58D):
+  1) Pasangkan dulu di Setelan Android -> Bluetooth (bukan hanya muncul
+     di daftar aplikasi).
+  2) Di Beranda aplikasi, bagian "Printer Struk (Bluetooth)", tekan
+     "CARI DAN HUBUNGKAN OTOMATIS". Aplikasi akan mencoba semua
+     perangkat yang sudah dipasangkan, lewat Bluetooth Classic (SPP)
+     maupun Bluetooth Low Energy (BLE).
+  3) Indikator harus hijau "Terhubung". Tekan "Tes Cetak" untuk memastikan.
+  4) Bila gagal, buka "Detail teknis koneksi" di bawah pesan untuk melihat
+     alasan persis (mis. printer menolak koneksi, Bluetooth nonaktif,
+     atau perangkat belum dipasangkan).
+  Tips: matikan-nyalakan printer, dan lepaskan printer dari HP/laptop
+  lain karena printer thermal hanya menerima satu koneksi aktif.
+
+- Kamera hanya aktif selama halaman pemindaian. Kalau muncul
+  preview hitam, buka ulang aplikasinya.
+
+- Untuk refresh aplikasi: tekan tombol Home lalu buka lagi. Data suara
+  yang sudah masuk tidak hilang.
+
+Selamat dipakai. Semoga sukses untuk simulasi pilkades Desa
+Dayeuhkolot.
